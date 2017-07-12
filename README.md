@@ -859,6 +859,7 @@ Below is the complete list of available options that can be used to customize yo
 | `GITLAB_RELATIVE_URL_ROOT` | The relative url of the GitLab server, e.g. `/git`. No default. |
 | `GITLAB_TRUSTED_PROXIES` | Add IP address reverse proxy to trusted proxy list, otherwise users will appear signed in from that address. Currently only a single entry is permitted. No defaults. |
 | `GITLAB_REGISTRY_ENABLED` | Enables the GitLab Container Registry. Defaults to `false`. |
+| `GITLAB_REGISTRY_HTTPS` | Toggles ssl for the registry, example usage for loadbalancer ssl termination. Defaults to `true`. |
 | `GITLAB_REGISTRY_HOST` | Sets the GitLab Registry Host. Defaults to `registry.example.com` |
 | `GITLAB_REGISTRY_PORT` | Sets the GitLab Registry Port. Defaults to `443`. |
 | `GITLAB_REGISTRY_API_URL` | Sets the GitLab Registry API URL. Defaults to `http://localhost:5000` |
@@ -984,9 +985,10 @@ Below is the complete list of available options that can be used to customize yo
 | `OAUTH_SAML_NAME_IDENTIFIER_FORMAT` | Describes the format of the username required by GitLab, Defaults to `urn:oasis:names:tc:SAML:2.0:nameid-format:transient` |
 | `OAUTH_SAML_GROUPS_ATTRIBUTE` | Map groups attribute in a SAMLResponse to external groups. No defaults. |
 | `OAUTH_SAML_EXTERNAL_GROUPS` | List of external groups in a SAMLResponse. Value is comma separated list of single quoted groups. Example: `'group1','group2'`. No defaults. |
+| `OAUTH_SAML_ATTRIBUTE_STATEMENTS_USERNAME` | Map 'username' attribute name in a SAMLResponse to entries in the OmniAuth info hash, No defaults. It will be obtained from `OAUTH_SAML_ATTRIBUTE_STATEMENTS_EMAIL` (before @) if it isn't specified. See [GitLab documentation](http://doc.gitlab.com/ce/integration/saml.html#attribute_statements) for more details. |
 | `OAUTH_SAML_ATTRIBUTE_STATEMENTS_EMAIL` | Map 'email' attribute name in a SAMLResponse to entries in the OmniAuth info hash, No defaults. See [GitLab documentation](http://doc.gitlab.com/ce/integration/saml.html#attribute_statements) for more details. |
 | `OAUTH_SAML_ATTRIBUTE_STATEMENTS_NAME` | Map 'name' attribute in a SAMLResponse to entries in the OmniAuth info hash, No defaults. See [GitLab documentation](http://doc.gitlab.com/ce/integration/saml.html#attribute_statements) for more details. |
-| `OAUTH_SAML_ATTRIBUTE_STATEMENTS_FIRST_NAME` | Map 'first_name' attribute in a SAMLResponse to entries in the OmniAuth info hash, No defaults. See [GitLab documentation](http://doc.gitlab.com/ce/integration/saml.html#attribute_statements) for more details. |
+| `OAUTH_SAML_ATTRIBUTE_STATEMENTS_NAME` | Map 'name' attribute in a SAMLResponse to entries in the OmniAuth info hash, No defaults. It will be formed by joining `OAUTH_SAML_ATTRIBUTE_STATEMENTS_FIRST_NAME` and `OAUTH_SAML_ATTRIBUTE_STATEMENTS_LAST_NAME`. See [GitLab documentation](http://doc.gitlab.com/ce/integration/saml.html#attribute_statements) for more details. |
 | `OAUTH_SAML_ATTRIBUTE_STATEMENTS_LAST_NAME` | Map 'last_name' attribute in a SAMLResponse to entries in the OmniAuth info hash, No defaults. See [GitLab documentation](http://doc.gitlab.com/ce/integration/saml.html#attribute_statements) for more details. |
 | `OAUTH_CROWD_SERVER_URL` | Crowd server url. No defaults. |
 | `OAUTH_CROWD_APP_NAME` | Crowd server application name. No defaults. |
